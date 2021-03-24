@@ -43,8 +43,12 @@ class ImapReader {
               return;
             }
 
-            // log
+            // check results
             console.log(`* Found ${results.length} messages to download`);
+            if (results.length == 0) {
+              resolve(messages);
+              return;
+            }
             
             var f = this._imap.fetch(results, { bodies: [ '' ] });
 

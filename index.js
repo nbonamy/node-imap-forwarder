@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+const process = require('process');
 const ImapReader = require('./imap-reader.js');
 const EmailFilter = require('./email-filter.js');
 const SmtpSender = require('./smtp-sender.js');
@@ -11,7 +12,7 @@ const configFilename  = `./config.json`;
 let options = require(configFilename);
 if (options?.imap == null || options?.smtp == null || options?.filters == null) {
   console.error('Invalid configuration file');
-  return 1;
+  process.exit(1);
 }
 
 // build the filters
@@ -53,7 +54,7 @@ imap.get(data.lastCheckDate).then((messages) => {
   // check
   if (!messages.length) {
     console.log('* No new messages found');
-    return;
+    process.exit(0);
   }
 
   // log
@@ -84,7 +85,9 @@ imap.get(data.lastCheckDate).then((messages) => {
   });
 
   // wait for all to finish
-  Promise.all(promises);
+  if (promises.length) {
+    Promise.all(promises);
+  }
 
 }).catch((err) => {
   console.log(err);
