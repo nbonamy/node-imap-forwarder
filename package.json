@@ -1,0 +1,25 @@
+{
+  "name": "imap-forwarder",
+  "version": "0.1.0",
+  "description": "IMAP to SMTP Forwarder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nbonamy/node-imap-forwarder.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/nbonamy/node-imap-forwarder/issues"
+  },
+  "homepage": "https://github.com/nbonamy/node-imap-forwarder#readme",
+  "dependencies": {
+    "imap": "^0.8.19",
+    "mailparser": "^3.1.0",
+    "minimatch": "^3.0.4",
+    "nodemailer": "^6.5.0"
+  }
+}
