@@ -1,0 +1,28 @@
+{
+  "imap": {
+    "user": "imap_user",
+    "password": "imap_password",
+    "host": "imap_host",
+    "port": 993,
+    "tls": true
+  },
+  "smtp": {
+    "host": "smtp_host",
+    "port": 465,
+    "secure": true,
+    "auth": {
+      "user": "smtp_user",
+      "pass": "smtp_password"
+    }
+  },
+  "filters": [
+    {
+      "to": "filter1_to",
+      "from": [ "*@github.com", "*@twitter.com" ]
+    },
+    {
+      "to": "filter2_to",
+      "subject": [ "filter2_text1", "filter2_text2" ]
+    }
+  ]
+}
