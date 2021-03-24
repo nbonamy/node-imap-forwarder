@@ -89,6 +89,9 @@ imap.get(data.lastCheckDate).then((messages) => {
     Promise.all(promises);
   }
 
+  // done
+  process.exit(0);
+
 }).catch((err) => {
   console.log(err);
 });
