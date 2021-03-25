@@ -37,7 +37,7 @@ try {
 
 // now imap
 let imap = new ImapReader(options.imap);
-imap.get(data.lastCheckDate).then((messages) => {
+imap.get(data.lastCheckDate).then(async (messages) => {
 
   // save
   data.lastCheckDate = new Date();
@@ -86,7 +86,7 @@ imap.get(data.lastCheckDate).then((messages) => {
 
   // wait for all to finish
   if (promises.length) {
-    Promise.all(promises);
+    await Promise.all(promises);
   }
 
   // done
