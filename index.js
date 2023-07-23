@@ -79,8 +79,10 @@ imap.get(data.lastCheckDate).then(async (messages) => {
     }
 
     // add as processed
-    data.lastMessageUid = message.attrs.uid;
-    fs.writeFileSync(dataFilename, JSON.stringify(data)); 
+		if (message.attrs.uid > data.lastMessageUid) {
+			data.lastMessageUid = message.attrs.uid;
+			fs.writeFileSync(dataFilename, JSON.stringify(data)); 
+		}
 
   });
 
